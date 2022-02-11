@@ -24,7 +24,7 @@
             margin: 0;
         }
         </style>
-        <title>Carte situation covid19 RDC</title>
+        <title>Carte Situation Covid19 RDC ( 2 janvier 2022 )</title>
     </head>
     <body>
         <header>
@@ -33,14 +33,15 @@
                     <img src="images/logo.png" alt="">
                 </a>
             </div>
-            <h2>Situation covid 19 RDC</h2>
+            <h2>Situation covid 19 RDC ( 2 janvier 2022 )</h2>
         </header>
         <div id="container">
             <div id="map">
             </div>
             <div id="details">
                 <div id="activite_vaccin">
-                    <h2>Activité vaccin</h2>
+                    <h2>Situation Covid19 par province</h2>
+                    <!-- <h2>Activité vaccin</h2> -->
                     <div class="input">
                         <label for="">Nom</label>
                         <input type="text" disabled="disabled" id="input_sitcovid_nom">
@@ -53,6 +54,19 @@
                         <label for="">Nouveau Cas</label>
                         <input type="text" disabled="disabled" id="input_sitcovid_newcas">
                     </div>
+                    <div class="input">
+                        <label for="">Nombre total des cas</label>
+                        <input type="text" disabled="disabled" id="input_sitcovid_oldcas">
+                    </div>
+                </div>
+                <div id="source_copy">
+                    <h2>Plus d'infos</h2>
+                    <ul>
+                        <li>Données Covid-19 : Cellule de la riposte contre la COVID 19</li>
+                        <li>SCR : WGS 84</li>
+                        <li>Auteur : <a href="https://www.rfs-congo.com">RFS CONSULTING</a></li>
+                        <li>Date : 2 janvier 2022</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -92,6 +106,7 @@
               });
             }
         }
+        //la couleur de la légende pour la situation vaccin
         function getColor(d){
           //  #c6e9a3
             return(d == 'operationnelle') ?  ' #c6e9a3' : ' #f48574' ;
@@ -165,7 +180,7 @@
         infos.addTo(map);
         bounds_group.bindPopup(infos)
         bounds_group.on('mouseover',function(e){
-           console.log(e.sourceTarget.feature)
+          // console.log(e.sourceTarget.feature)
             infos.update(e.sourceTarget.feature.properties)
         })
 
@@ -177,15 +192,15 @@
             showSubunits: true,
             minUnitWidth: 50,
             maxUnitWidth: 50,
-            labelPlacement: "auto"
-
+            labelPlacement: "auto",
+            position:'bottomright'
         });
 //        graphicScale.onAdd()
         graphicScale.addTo(map);
 
 
 
-        var legend = L.control({position: 'bottomright'});
+        var legend = L.control({position: 'bottomleft'});
 
         legend.onAdd = function (map) {
 
@@ -721,6 +736,6 @@
         document.getElementsByClassName('search-button')[0].className +=
          ' fa fa-binoculars';
         </script>
-        <script src="js/local.js"></script>
+        <!-- <script src="js/local.js"></script> -->
     </body>
 </html>
