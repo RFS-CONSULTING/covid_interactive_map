@@ -81,7 +81,7 @@ body #container #details .input{
 }
 body #container #details .input label,input{
     width: 100%;
-    font-size: 1.4vw;
+    /* font-size: 1.4vw; */
 
 }
 
